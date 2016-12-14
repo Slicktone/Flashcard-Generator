@@ -1,6 +1,7 @@
 var inquirer = require('inquirer');
+var fs = require('fs');
 
-
+console.log(Flashcard);
 var Flashcard = function(front, back) {
     var flashCards = [];
     this.front = front;
@@ -24,5 +25,6 @@ var Flashcard = function(front, back) {
     }
 
 }
+
 
 module.exports = Flashcard;

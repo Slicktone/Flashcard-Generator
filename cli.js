@@ -1,6 +1,6 @@
 var inquirer = require('inquirer');
 var fs = require('fs');
-var flash = require('./flashcard.js');
+
 var cloze = require('./clozecard.js');
 
 
@@ -39,15 +39,17 @@ var cloze = require('./clozecard.js');
 ]).then(function(input) {
     if(input.Card === "Flashcard" && input.Choice === "New") {
         console.log("Welcome to the Flashcard creation menu!");
-        BasicFlashcard(create);
+        var Flashcard = require('./flashcard.js');
+        Flashcard.createCard;
     } else if (input.Card === "Flashcard" && input.Choice === "Study Time!") {
         console.log("Time to study! Are you ready?");
-        BasicFlashcard(front);
+        Flashcard(front);
     } else if (input.Card === "Clozecard" && input.Choice === "New") {
         console.log("Welcome to the Clozecard creation menu!");
         Clozecard(create);
     } else if (input.Card === "Clozecard" && input.Choice === "Study Time!") {
         console.log("Get ready for your ultimate studytime with ClozeCards!");
         Clozecard(text);
-    }
+     }
+
 }); 
