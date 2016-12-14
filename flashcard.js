@@ -1,7 +1,7 @@
 var inquirer = require('inquirer');
 
 
-function Flashcard(front, back) {
+var Flashcard = function(front, back) {
     var flashCards = [];
     this.front = front;
     this.back = back;
