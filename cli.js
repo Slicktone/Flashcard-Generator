@@ -1,6 +1,6 @@
 var inquirer = require('inquirer');
 var fs = require('fs');
-var Flashcard = require('./flashcard.js');
+var FlashCard = require('./flashcard.js');
 var cloze = require('./clozecard.js');
 
 
@@ -39,16 +39,54 @@ var cloze = require('./clozecard.js');
 ]).then(function(input) {
     if(input.Card === "Flashcard" && input.Choice === "New") {
         console.log("Welcome to the Flashcard creation menu!");
-        Flashcard;
+        console.log("-----------------------------------------");
+            inquirer.prompt([
+                {
+                    type: "input",
+                    message: "Whats on the Front?",
+                    name: "front"
+                },
+                {
+                    type: "input",
+                    message: "Whats on the Back?",
+                    name: "back"
+                }
+            ]).then(function(input){
+                var NewCard = new FlashCard(input.front, input.back);
+                NewCard.writeCard();
+                console.log("Here is your created card " + input.front + " " + input.back);
+            });
+
     } else if (input.Card === "Flashcard" && input.Choice === "Study Time!") {
         console.log("Time to study! Are you ready?");
-        FlashCard.display();
+        FlashCard.display(front);
+            setTimeout(function() {
+                FlashCard.display(back);
+            }, 4000);
+
     } else if (input.Card === "Clozecard" && input.Choice === "New") {
         console.log("Welcome to the Clozecard creation menu!");
-        Clozecard(create);
+        console.log("-----------------------------------------");
+            inquirer.prompt([
+                {
+                    type: "input",
+                    message: "What is the Cloze Text?",
+                    name: "cloze"
+                },
+                {
+                    type: "input",
+                    message: "Whats on the Back?",
+                    name: "back"
+                }
+            ]).then(function(input){
+                var card = new ClozeFlash(input.text, input.cloze);
+                NewCard.writeCard();
+                console.log();
+            });
+
     } else if (input.Card === "Clozecard" && input.Choice === "Study Time!") {
         console.log("Get ready for your ultimate studytime with ClozeCards!");
-        Clozecard(text);
+        Clozecard.displayCloze;
      }
 
 }); 
