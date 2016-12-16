@@ -59,10 +59,13 @@ var ClozeCard = require('./clozecard.js');
 
     } else if (input.Card === "Flashcard" && input.Choice === "Study Time!") {
         console.log("Time to study! Are you ready?");
-        FlashCard.display(front);
-            setTimeout(function() {
-                FlashCard.display(back);
-            }, 4000);
+        function displayFlash() {
+            FlashCard();
+                setTimeout(function() {
+                    FlashCard.display();
+                }, 4000);
+        }
+        displayFlash();
 
     } else if (input.Card === "Clozecard" && input.Choice === "New") {
         console.log("Welcome to the Clozecard creation menu!");
@@ -75,18 +78,25 @@ var ClozeCard = require('./clozecard.js');
                 },
                 {
                     type: "input",
-                    message: "Whats on the Back?",
-                    name: "back"
+                    message: "Input the rest of the text here",
+                    name: "text"
                 }
             ]).then(function(input){
-                var card = new ClozeFlash(input.cloze, input.text);
+                var card = new ClozeCard(input.cloze, input.text);
                 card.writeCard();
-                console.log();
+                console.log("Here is your created card " + input.cloze + " " + input.text);
             });
 
     } else if (input.Card === "Clozecard" && input.Choice === "Study Time!") {
         console.log("Get ready for your ultimate studytime with ClozeCards!");
-        Clozecard.displayCloze;
+        // dispay the cloze card functionality
+        function deletedCloze() {
+            ClozeCard();
+                setTimeout(function() {
+                    ClozeCard.showClozeDeleted();
+                }, 4000);
+            }
+        deletedCloze();
      }
 
 }); 

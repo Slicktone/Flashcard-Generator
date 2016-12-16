@@ -20,4 +20,4 @@
 ### Where might it make sense to add a method for saving flashcards?
 ### As a bonus, create a frontend that uses your flashcard data. This front-end can be either a command-line prompt or a browser-based application.
 ### When passed a basic flashcard, this program should present the front text; wait for user input; and then display the back text.
-###When passed a cloze-deleted flashcard, this program should present the partial text; wait for user input; and then display the full text.
+### When passed a cloze-deleted flashcard, this program should present the partial text; wait for user input; and then display the full text.
