@@ -1,7 +1,7 @@
 var inquirer = require('inquirer');
 var fs = require('fs');
 var FlashCard = require('./flashcard.js');
-var cloze = require('./clozecard.js');
+var ClozeCard = require('./clozecard.js');
 
 
 // input inquirer UI here.
@@ -79,8 +79,8 @@ var cloze = require('./clozecard.js');
                     name: "back"
                 }
             ]).then(function(input){
-                var card = new ClozeFlash(input.text, input.cloze);
-                NewCard.writeCard();
+                var card = new ClozeFlash(input.cloze, input.text);
+                card.writeCard();
                 console.log();
             });
 
